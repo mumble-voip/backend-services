@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Register{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="name">Server name:</label>
+    <input name="server_name" id="name" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="register_password" id="password" required>
+
+	<label for="ip">IP:</label>
+	<input name="ip" id="ip" required>
+
+	<label for="port">Port:</label>
+	<input name="port" id="port" required>
+
+	<label for="url">URL:</label>
+	<input name="website_url" id="url">
+
+    <input type="submit" value="Register">
+  </form>
+{% endblock %}
