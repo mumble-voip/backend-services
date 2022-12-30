@@ -4,8 +4,6 @@ from http import HTTPStatus
 from werkzeug import wsgi
 import socket
 
-cert_header = "PEER_SSL_CERTIFICATE"
-
 
 def handle_registration():
     for requiredParam in [
