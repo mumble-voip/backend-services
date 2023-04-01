@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS series;
+DROP TABLE IF EXISTS build;
+
+CREATE TABLE series (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT NOT NULL,
+	created_on DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE build (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	series_id INTEGER NOT NULL,
+	commit_hash TEXT NOT NULL,
+	build_number INTEGER NOT NULL,
+	created_on DEFAULT CURRENT_TIMESTAMP,
+	UNIQUE(series_id, commit_hash),
+	FOREIGN KEY (series_id) REFERENCES series (id) 
+);
