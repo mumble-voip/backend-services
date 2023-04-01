@@ -1,0 +1,23 @@
+#!/bin/bash
+
+PYTHON_HOST_BIN=python
+
+which $PYTHON_HOST_BIN
+
+if [ $? -ne 0 ]; then
+	PYTHON_HOST_BIN=python3
+fi
+
+which $PYTHON_HOST_BIN
+
+if [ $? -ne 0 ]; then
+	echo "python executable not found"
+	exit 1
+fi
+
+$PYTHON_HOST_BIN --version
+
+$PYTHON_HOST_BIN -m venv venv
+venv/bin/pip install -r requirements.txt
+
+. venv/bin/activate
